@@ -7,6 +7,8 @@ import java.util.Arrays;
  * 561. Array Partition I
  *
  * tags:Array
+ * Difficulty : Medium
+ * 数组的排序方法的使用
  *
  * Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), ..., (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
 
@@ -27,7 +29,7 @@ public class ArrayPartitionI {
             return 0;
         int result=0;
         Arrays.sort(nums);
-        for (int i=0;i<nums.length;i+=2)
+        for (int i= 0;i < nums.length;i+=2)
         {
             result = result + nums[i];
         }
