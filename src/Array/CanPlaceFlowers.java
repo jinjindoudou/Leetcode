@@ -86,18 +86,31 @@ public class CanPlaceFlowers {
         //别人的方法 ：速度快，方法简单。
         // 计算 插花的位置，直接用count/2就可以，不用判断是否为奇偶数。
         // 综合的考虑到了在1.中间的位置、2.首尾的位置，还有 3.首尾相连的位置的三种情况。
-        int count = 1;
-        for (int i = 0; i < flowerbed.length; i++) {
-            if (flowerbed[i] == 0) {
-                count ++;
-            } else {
-                n -= (count - 1) / 2;
-                count = 0;
+//        int count = 1;
+//        for (int i = 0; i < flowerbed.length; i++) {
+//            if (flowerbed[i] == 0) {
+//                count ++;
+//            } else {
+//                n -= (count - 1) / 2;
+//                count = 0;
+//            }
+//        }
+//        n -= count / 2;
+//        if (n > 0) return false;
+//        else return true;
+
+        //别人的方法 ：速度快，方法简单。
+        // 计算 插花的位置，直接用count/2就可以，不用判断是否为奇偶数。
+        // 综合的考虑到了在1.中间的位置、2.首尾的位置，还有 3.首尾相连的位置的三种情况。
+        int start = -1;
+        for(int i = 0; i < flowerbed.length; ++i) {
+            if(flowerbed[i] == 1) {
+                n -= (i-start-1)/2;
+                start = i+1;
             }
         }
-        n -= count / 2;
-        if (n > 0) return false;
-        else return true;
+        n -= (flowerbed.length - start)/2;
+        return n <= 0;
     }
     public static void main(String[] args) {
         boolean boolValue;
